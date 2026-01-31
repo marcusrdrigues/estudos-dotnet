@@ -24,4 +24,13 @@ public class FuncionarioUseCase
         writer.Close();
     }
     
+    //Método para consultar os funcionários
+    public string ConsultarFuncionario()
+    {
+        var reader = new StreamReader("/Volumes/ssd_Marcus/temp/funcionario.xml");
+        var xml = reader.ReadToEnd();
+        reader.Close();
+
+        return xml;
+    }
 }

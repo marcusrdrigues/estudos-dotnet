@@ -74,6 +74,9 @@ public class FuncionarioController
     }
     private void RealizarConsulta()
     {
+        Console.WriteLine("\nCONSULTA DE FUNCIONÁRIO:\n");
         
+        var funcionarioUseCase = new FuncionarioUseCase();
+        Console.WriteLine(funcionarioUseCase.ConsultarFuncionario());
     }
 }
