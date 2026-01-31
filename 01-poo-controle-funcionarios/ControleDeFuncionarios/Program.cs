@@ -1,3 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using ControleDeFuncionarios.Controllers;
 
-Console.WriteLine("Hello, World!");
+var funcionarioController = new FuncionarioController();
+funcionarioController.GerenciarFuncionarios();
+
+Console.ReadKey();

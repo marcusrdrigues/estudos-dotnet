@@ -1,4 +1,6 @@
 using ControleDeFuncionarios.Entities;
+using ControleDeFuncionarios.Enums;
+using ControleDeFuncionarios.UseCases;
 
 namespace ControleDeFuncionarios.Controllers;
 
@@ -39,17 +41,35 @@ public class FuncionarioController
         var funcionario = new Funcionario(); //Criando um objeto do funcionário
         funcionario.Empresa = new Empresa();
         
-        Console.Write("NOME DO FUNCIONÁRIO..:");
+        Console.Write("NOME DO FUNCIONÁRIO......: ");
         funcionario.Nome = Console.ReadLine() ?? string.Empty;
 
-        Console.WriteLine("CPF..............:");
+        Console.Write("CPF..................: ");
         funcionario.Cpf = Console.ReadLine() ?? string.Empty;
         
-        Console.Write("DATA DE ADMISSÁO.....:");
+        Console.Write("DATA DE ADMISSÁO.........: ");
         funcionario.DataAdmissao = DateOnly.Parse(Console.ReadLine() ?? string.Empty);
         
-        Console.Write("SALÁRIO..............:");
+        Console.Write("SALÁRIO..................: ");
         funcionario.Salario = decimal.Parse(Console.ReadLine() ?? string.Empty);
+
+        Console.Write("RAZAO SOCIAL DA EMPRESA..: ");
+        funcionario.Empresa.RazaoSocial = Console.ReadLine() ?? string.Empty;
+        
+        Console.Write("NOME FANTASIA............: ");
+        funcionario.Empresa.NomeFantasia = Console.ReadLine() ?? string.Empty;
+        
+        Console.Write("CNPJ.....................: ");
+        funcionario.Empresa.Cnpj = Console.ReadLine() ?? string.Empty;
+        
+        Console.Write("TIPO DE CONTRATAÇÃO.......:");
+        funcionario.TipoContratacao = Enum.Parse<TipoContratacao>(Console.ReadLine() ?? string.Empty);
+        
+        //Criando um objeto da classe UseCase
+        var funcionarioUseCase = new FuncionarioUseCase();
+        funcionarioUseCase.CadastrarFuncionario(funcionario);
+        
+        Console.WriteLine("\nFUNCIONÁRIO CADASTRADO COM SUCESSO!");
         
     }
     private void RealizarConsulta()
