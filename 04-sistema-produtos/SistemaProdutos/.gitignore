@@ -1,0 +1,15 @@
+# Build
+bin/
+obj/
+
+# Rider
+.idea/
+
+# VS
+.vs/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
